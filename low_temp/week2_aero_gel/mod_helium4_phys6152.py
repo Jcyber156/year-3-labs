@@ -103,7 +103,7 @@ def density_superfluid(TemperatureK):
     density_superfluid = np.tile(np.nan,len(TemperatureK)) # array of nan
 
     for tempindex in range(len(density_superfluid)):
-        density_superfluid[tempindex] = interpolate.splev(TemperatureK[tempindex], (k, c, 3), ext = 1) * 1e3 #kg/m**3
+        density_superfluid[tempindex] = interpolate.splev(TemperatureK[tempindex], (k, c, 3), ext = 1) * 1e3 #kg/m**3 #type:ignore
 
     return density_superfluid
 
