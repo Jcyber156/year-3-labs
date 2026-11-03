@@ -39,7 +39,7 @@ class PlotWidths:
 
 
     def plot_frequency_temp(self):
-        plt.errorbar(self.temperature,self.frequency_values,yerr=self.frequency_uncertainty)
+        plt.errorbar(self.temperature,self.frequency_values,yerr=self.frequency_uncertainty,xerr=self.temperature_uncertainties)
         plt.title("Temperature vs Frequency for resonating NbTi Wire")
         plt.xlabel("Temperature / K")
         plt.ylabel("Frequency / Hz")
@@ -55,7 +55,7 @@ class PlotWidths:
         return final_temps
 
     def plot_width_vs_temperature(self):
-        plt.errorbar(self.temperature,self.vx_width,xerr=self.temperature_uncertainties,yerr=self.v_width_uncertainty) #TODO investigate error odities
+        plt.errorbar(self.temperature,self.vx_width,xerr=self.temperature_uncertainties,yerr=self.v_width_uncertainty) 
         plt.title("Temperature vs Resonant Width for NbTi Wire")
         plt.xlabel("Temperature / K")
         plt.ylabel("Resonant Width / Hz ")
@@ -73,7 +73,7 @@ class PlotWidths:
 
 class PlotDriveData:
     def __init__(self) -> None:
-        self.drive_up_amp, self.drive_up_vx, self.drive_down_amp,self.drive_down_vx = pa.load_drive_file("Drive2.dat")
+        self.drive_up_amp, self.drive_up_vx, self.drive_down_amp,self.drive_down_vx = pa.load_drive_file("Drive3.dat")
         self.B = 100e-3 #magnetic field
         self.D = 3e-3 #wire loop diameter
         
